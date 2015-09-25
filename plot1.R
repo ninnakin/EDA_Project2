@@ -20,7 +20,7 @@ NEI <- readRDS("exdata-data-NEI_data\\summarySCC_PM25.rds")
 # Sum all the emissions and plot by year
 em.by.year<-tapply(NEI$Emissions, NEI$year, FUN=sum)
 em.by.year<-0.001*em.by.year # get result in kilotons instead of tons
-years <- unique(NEI.Baltimore$year)
+years <- unique(NEI$year)
 
 # open png device 
 png(filename="plot1.png")
@@ -31,11 +31,12 @@ plot(years,
      type="b", lwd=3, col="red", pch=20, xaxt="n",
      ylab="Emissions (kilotons)", 
      xlab="Year", 
-     main="Total PM2.5 emissions by year",
+     main="Total PM2.5 emissions by year for US",
      ylim=c(0,max(em.by.year))
 )
 abline(lm(em.by.year~ years), lwd=2, col="grey")
 axis(1, years)
+legend("bottomleft",c("PM2.5 emissions (kilotons)", "Regression line"), col=c("red","grey"), lwd=c(3,2))
 
 # close graphics device to save file
 dev.off()
