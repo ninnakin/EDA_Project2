@@ -27,7 +27,7 @@ NEI.Baltimore <- subset(NEI, fips=="24510", select=c(Emissions, year, type))
 em.by.year.type<-aggregate(Emissions~year+type, data=NEI.Baltimore, sum, na.rm=TRUE)
 
 # open png device 
-png(filename="plot3.png")
+png(filename="plot3.png", height = 480, width = 600, units = "px")
 
 # create plot
 g <- ggplot(data=em.by.year.type, aes(x=factor(year),y=Emissions))
