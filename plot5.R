@@ -35,8 +35,9 @@ g <- ggplot(em.by.year, aes(x=factor(year),y=Emissions))
 g <- g + geom_point(size=4, col="blue")
 g <- g + coord_cartesian(ylim=c(0,1.8*max(em.by.year$Emissions)))     
 g <- g + geom_smooth(method="lm",se=TRUE,aes(group=1),lwd=1, color="black")# add regression line to visualize trend
-g <- g + ggtitle("Emissions from motor vevichle-related sources in Baltimore by year")
-g <- g + xlab("Year")+ylab("Emisisons")
+g <- g + ggtitle("Emissions from motor vevichle-related sources in Baltimore by year
+                  Including regression line")
+g <- g + xlab("Year")+ylab("Emisisons (tons)")
 g
 
 # close graphics device to save file
