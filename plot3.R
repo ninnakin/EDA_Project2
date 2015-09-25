@@ -45,3 +45,4 @@ dev.off()
 ## Answer
 #  The following types have seen increased emissions: POINT
 #  The following types have seen decreased emissions: NON-ROAD, NONPOINT, ON-ROAD
+#  The confidence intervals of the regression line indicates that the trends for nonpoin and point are very uncertain
