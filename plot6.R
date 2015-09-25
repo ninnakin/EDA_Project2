@@ -47,11 +47,14 @@ em.by.year[em.by.year$fips=="Baltimore",]$normalize=Balt_norm
 em.by.year[em.by.year$fips=="Los Angeles",]$normalize=LA_norm
 
 # open png device 
-png(filename="plot6.png")
+png(filename="plot6.png", width = 700, height = 600, units = "px")
 
 g <- ggplot(em.by.year , aes(x=factor(year),y=normalize))
 g <- g + geom_point(size=4, color="blue")
-g <- g + ggtitle("Relative change in emissions from vehichles over time") +  xlab("Year")
+g <- g + xlab("Year") + ylab("Emissions relative to base line")
+g <- g + labs(title="Adjusted PM2.5 emissions from vehichles over time \n
+              Emission data is adjusted relative to the base line level in 1999. This lets us see
+              how much the levels have changed relative to the starting points for both regions")
 g <- g + facet_grid(.~fips)                               # One panel for each region
 g <- g + geom_smooth(method="lm",se=TRUE,aes(group=1),lwd=1, color="black")# add regression line to visualize trend
 g
