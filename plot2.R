@@ -35,6 +35,7 @@ plot(years,
 )
 abline(lm(em.by.year~ years), lwd=2, col="grey")
 axis(1, years)
+legend("bottomleft",c("PM2.5 emissions (tons)", "Regression line"), col=c("red","grey"), lwd=c(3,2))
 
 # close graphics device to save file
 dev.off()
